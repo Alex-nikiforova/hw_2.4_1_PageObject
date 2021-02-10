@@ -31,11 +31,11 @@ public class DataHelper {
 
     }
 
-    public static CardInfo getCardNumber1() {
+    public static CardInfo getFirstCardNumber() {
         return new CardInfo("5559 0000 0000 0001");
     }
 
-    public static CardInfo getCardNumber2() {
+    public static CardInfo getSecondCardNumber() {
         return new CardInfo("5559 0000 0000 0002");
     }
 }
