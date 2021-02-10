@@ -32,7 +32,7 @@ public class MoneyTransferTest {
         int amount = 1_548;
 
         val transactionPage = pushSecondCardButton();
-        transactionPage.transferMoneyFromFirstToSecondCard(amount);
+        transactionPage.transferMoneyFromFirstCard(amount);
         val firstCardBalanceResult = firstCardBalanceStart - amount;
         val secondCardBalanceResult = secondCardBalanceStart + amount;
 
@@ -48,7 +48,7 @@ public class MoneyTransferTest {
         int amount = 855;
 
         val transactionPage = pushFirstCardButton();
-        transactionPage.transferMoneyFromSecondToFirstCard(amount);
+        transactionPage.transferMoneyFromSecondCard(amount);
         val firstCardBalanceResult = firstCardBalanceStart + amount;
         val secondCardBalanceResult = secondCardBalanceStart - amount;
 
