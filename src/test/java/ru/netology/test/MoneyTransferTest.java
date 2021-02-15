@@ -1,4 +1,4 @@
-package ru.netology.ru.netology.test;
+package ru.netology.test;
 
 import lombok.val;
 import org.junit.jupiter.api.BeforeEach;
@@ -32,7 +32,7 @@ public class MoneyTransferTest {
         int amount = 1_548;
 
         val transactionPage = pushSecondCardButton();
-        transactionPage.transferMoneyFromFirstCard(amount);
+        transactionPage.transferMoney(amount,getFirstCardNumber() );
         val firstCardBalanceResult = firstCardBalanceStart - amount;
         val secondCardBalanceResult = secondCardBalanceStart + amount;
 
@@ -48,7 +48,7 @@ public class MoneyTransferTest {
         int amount = 855;
 
         val transactionPage = pushFirstCardButton();
-        transactionPage.transferMoneyFromSecondCard(amount);
+        transactionPage.transferMoney(amount, getSecondCardNumber());
         val firstCardBalanceResult = firstCardBalanceStart + amount;
         val secondCardBalanceResult = secondCardBalanceStart - amount;
 
@@ -60,7 +60,7 @@ public class MoneyTransferTest {
     public void shouldNotTransferMoneyIfAmountMoreBalance() {
         int amount = 50_000;
         val transactionPage = pushSecondCardButton();
-        transactionPage.transferMoneyFromFirstCard(amount);
+        transactionPage.transferMoney(amount, getFirstCardNumber());
         transactionPage.getErrorLimit();
     }
 
@@ -68,7 +68,7 @@ public class MoneyTransferTest {
     public void shouldGetErrorIfTheSameCards() {
         int amount = 500;
         val transactionPage = pushFirstCardButton();
-        transactionPage.transferMoneyFromFirstCard(amount);
+        transactionPage.transferMoney(amount,getSecondCardNumber() );
         transactionPage.getErrorInvalidCard();
     }
 }
